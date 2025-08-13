@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keywell - Электронная меланхолия</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #f1f1f1;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Unbounded', sans-serif;
+        }
+        .logo {
+            background: linear-gradient(90deg, #00f5d4, #00bbf9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+        }
+        .neon-text {
+            text-shadow: 0 0 8px rgba(0, 245, 212, 0.7);
+        }
+        .gradient-btn {
+            background: linear-gradient(90deg, #00f5d4, #00bbf9);
+            transition: all 0.3s ease;
+        }
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 245, 212, 0.4);
+        }
+        .album-cover {
+            transition: all 0.3s ease;
+        }
+        .album-cover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 245, 212, 0.3);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #00f5d4;
+        }
+        .streaming-icon {
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+        .streaming-icon:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/736x/54/03/c4/5403c4268cfce404e6624fe12d8b3b59.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold logo">KEYWELL</a>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#about" class="hover:text-cyan-300 transition duration-300">Биография</a></li>
+                        <li><a href="#discography" class="hover:text-cyan-300 transition duration-300">Альбомы</a></li>
+                        <li><a href="#tour" class="hover:text-cyan-300 transition duration-300">Концерты</a></li>
+                        <li><a href="#streaming" class="hover:text-cyan-300 transition duration-300">Площадки</a></li>
+                    </ul>
+                </nav>
+                <button class="md:hidden text-xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black bg-opacity-95 w-full" id="mobile-menu">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#about" class="hover:text-cyan-300 transition duration-300">Биография</a></li>
+                <li><a href="#discography" class="hover:text-cyan-300 transition duration-300">Альбомы</a></li>
+                <li><a href="#tour" class="hover:text-cyan-300 transition duration-300">Концерты</a></li>
+                <li><a href="#streaming" class="hover:text-cyan-300 transition duration-300">Площадки</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="max-w-3xl mx-auto fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 neon-text">KEYWELL</h1>
+                <p class="text-xl md:text-2xl mb-10 text-cyan-200">Электронная меланхолия</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#streaming" class="gradient-btn text-black font-bold py-3 px-8 rounded-full">Слушать</a>
+                    <a href="#tour" class="border-2 border-cyan-300 text-cyan-300 font-bold py-3 px-8 rounded-full hover:bg-cyan-300 hover:text-black transition duration-300">Ближайший концерт</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 fade-in">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center neon-text">Биография</h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://vki5.okcdn.ru/i?r=CIC3QJv1RQZIqEhgaodSG7zsABUGhuSSpHHC_qEamJBt1hF8j8NiwxEihWOuQbYvxf18R6GNeKNZe2R5Db8qqwbyoPbdsqRFpJxA3bLDEDkysTEK3ZCbieoCTg6Ryc5zU6bUQWU4cu6bU56mSEnR-BqJNYGJ10X232tUuNz7LCPSxyKPTWSJ1-54UvyQlUhNwcEsvvrijj7eyW9hL3Gsnk6F6daMjNLeFzjNzrQx7iiRuX3ldBIOsBQAAAAp&dpr=2" 
+                         alt="Keywell" 
+                         class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover mx-auto border-4 border-cyan-300 shadow-lg">
+                </div>
+                <div class="lg:w-1/2">
+                    <p class="mb-4">Keywell — российский электронный музыкант, создающий атмосферные лоу-фай и мелодичный инди-электронный звук.</p>
+                    <p class="mb-4">Его музыка сочетает в себе меланхоличные мелодии, теплые аналоговые синтезаторы и ритмы, вдохновленные 90-ми.</p>
+                    <p class="mb-4">Начав свой путь в 2024 году, Keywell быстро завоевал признание на андеграундной сцене благодаря своему уникальному звучанию.</p>
+                    <p class="mb-4">Его треки собрали миллионы прослушиваний на стриминговых платформах, а последний альбом заценил даже мой кот.</p>
+                    <p>Вдохновленный харбинским пивом, урбанистическими пейзажами и кинематографом, Keywell создает музыку, которая переносит слушателя в другие измерения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discography Section -->
+    <section id="discography" class="py-20 bg-black bg-opacity-50 fade-in">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center neon-text">Последние релизы</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Album 1 -->
+                <div class="text-center">
+                    <a href="https://open.spotify.com" target="_blank" class="block">
+                        <img src="https://vki5.okcdn.ru/i?r=CIC3QJv1RQZIqEhgaodSG7zsABUGhuSSpHHC_qEamJBt1hF8j8NiwxEihWOuQbYvxf18R6GNeKNZe2R5Db8qqwbyoPbdsqRFpJxA3bLDEDkysTEK3ZCbieoCTg6Ryc5zU6bUQWU4cu6bU56mSEnR-BqJNYGJ10X232tUuNz7LCPSxyKPTWSJ1-54UvyQlUhNwcEsvvrijj7eyW9hL3Gsnk6F6daMjNLeFzjNzrQx7iiRuX3ldBIOsBQAAAAp&dpr=2" 
+                             alt="Hit the bass" 
+                             class="album-cover w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-bold mb-1">Hit the bass</h3>
+                        <p class="text-gray-400">2024 • Альбом</p>
+                    </a>
+                </div>
+                <!-- Album 2 -->
+                <div class="text-center">
+                    <a href="https://open.spotify.com" target="_blank" class="block">
+                        <img src="https://vki5.okcdn.ru/i?r=CIC3QJv1RQZIqEhgaodS6VMsBP5MkF3wVuuAxVnpWXng5L2S6vKu18IYFoH1SK4V3j5YiKBgCecdhB84I9wVPwIrGISOmTQnN_AhqysEsL9OGrzkTN1KR2vzWou8uaOFNiEqEVHAzwlnmMkB4WGMAUwU6HgG3r4U2t-NIuEXaFpKOgwgsVQ_9fttHXaUjZRDDDR-Cp9VzrHxBaOQDnVfrHKzC_MGbhBFEhUsYGE1ViOdYeY941Qan3IAAAAp&dpr=2" 
+                             alt="DARK CORE" 
+                             class="album-cover w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-bold mb-1">DARK CORE</h3>
+                        <p class="text-gray-400">2025 • EP</p>
+                    </a>
+                </div>
+                <!-- Album 3 -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Dates Section -->
+    <section id="tour" class="py-20 fade-in">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center neon-text">Ближайшие выступления</h2>
+            <div class="max-w-3xl mx-auto">
+                <!-- Concert 1 -->
+                <div class="border-b border-gray-800 py-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold">Комсомольск-на-Амуре</h3>
+                            <p class="text-gray-400">22 ноября 2025</p>
+                        </div>
+                        <div class="mb-4 md:mb-0">
+                            <p class="text-gray-300">Тир 32 школы</p>
+                            <p class="text-sm text-gray-500">19:00</p>
+                        </div>
+                        <a href="#" class="gradient-btn text-black font-bold py-2 px-6 rounded-full text-sm">Билеты</a>
+                    </div>
+                </div>
+                <!-- Concert 2 -->
+                <div class="border-b border-gray-800 py-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold">Санкт-Петербург</h3>
+                            <p class="text-gray-400">23 ноября 2025</p>
+                        </div>
+                        <div class="mb-4 md:mb-0">
+                            <p class="text-gray-300">подвал</p>
+                            <p class="text-sm text-gray-500">20:00</p>
+                        </div>
+                        <a href="#" class="gradient-btn text-black font-bold py-2 px-6 rounded-full text-sm">Билеты</a>
+                    </div>
+                </div>
+                <!-- Concert 3 -->
+                <div class="border-b border-gray-800 py-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold">Остров Русский</h3>
+                            <p class="text-gray-400">30 ноября 2025</p>
+                        </div>
+                        <div class="mb-4 md:mb-0">
+                            <p class="text-gray-300">Малый Аякс</p>
+                            <p class="text-sm text-gray-500">19:30</p>
+                        </div>
+                        <a href="#" class="gradient-btn text-black font-bold py-2 px-6 rounded-full text-sm">Билеты</a>
+                    </div>
+                </div>
+                <!-- More concerts -->
+                <div class="pt-8 text-center">
+                    <a href="#" class="inline-block border-2 border-cyan-300 text-cyan-300 font-bold py-2 px-6 rounded-full hover:bg-cyan-300 hover:text-black transition duration-300">Все концерты</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Streaming Section -->
+    <section id="streaming" class="py-20 bg-black bg-opacity-50 fade-in">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center neon-text">Слушать</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
+                    <a href="https://music.yandex.ru/album/36449339?utm_source=bandlink&utm_medium=KeyWell&utm_campaign=DARK+CORE&utm_term=p6Tsq" target="_blank" class="flex flex-col items-center">
+                        <i class="fab fa-yandex text-5xl mb-2 streaming-icon" style="color: #1DB954;"></i>
+                        <span class="text-sm">ЯндексМузыка</span>
+                    </a>
+                    <a href="https://music.apple.com/us/artist/keywell/1831371293" target="_blank" class="flex flex-col items-center">
+                        <i class="fab fa-apple text-5xl mb-2 streaming-icon" style="color: #FC3C44;"></i>
+                        <span class="text-sm">Apple Music</span>
+                    </a>
+                    <a href="https://open.spotify.com/artist/3ikrvYfCg8YJZyFpfxhDQg?si=vnK5Qe9jTZ-U3TurtsY7Yw" target="_blank" class="flex flex-col items-center">
+                        <i class="fab fa-spotify text-5xl mb-2 streaming-icon" style="color: #FF0000;"></i>
+                        <span class="text-sm">Spotify</span>
+                    </a>
+                    <a href="https://boom.ru/redirect/album/29764596?mt_sub3=29764596&mt_sub1=DARK%20CORE&mt_sub2=%27album%27&mt_click_id=mt-x22684-1755080851-1077147935" target="_blank" class="flex flex-col items-center">
+                        <i class="fab fa-vk text-5xl mb-2 streaming-icon" style="color: #629AA9;"></i>
+                        <span class="text-sm">Vkontakte</span>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="inline-block border-2 border-cyan-300 text-cyan-300 font-bold py-2 px-6 rounded-full hover:bg-cyan-300 hover:text-black transition duration-300">Все площадки</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold logo">KEYWELL</a>
+                </div>
+                
+                    <a href="https://web.telegram.org/k/#@KeyWell1" target="_blank" class="social-icon text-xl">
+                        <i class="fab fa-telegram"></i>
+                        <span class="text-sm">Telegram</span>
+                    </a>
+                    
+                    
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© Keywell, ©Egoorushkaa, 2025
+                  Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
